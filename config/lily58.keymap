@@ -63,10 +63,10 @@
 // |       |     | F1  |  F2  |  F3  |      |        |  |       |  -   |   1   |   2   |  3   |   +   |       |
 //                     |      |      |      |        |  |       |  ,   |   0   |       |
 			bindings = <
-&kp LA(F4)    &trans     &kp F10    &kp F11      &kp F12   &trans                        &trans       &trans    &trans    &trans    &kp SLASH &trans
-&trans            &trans     &kp F7     &kp F8       &kp F9    &trans                        &trans       &kp N7    &kp N8    &kp N9    &kp ASTRK &trans
-&trans            &trans     &kp F4     &kp F5       &kp F6    &trans                        &kp KP_EQUAL &kp N4    &kp N5    &kp N6    &kp MINUS &trans
-&ext_power EP_OFF &trans     &kp F1     &kp F2       &kp F3    &trans    &trans    &trans    &trans       &kp N1    &kp N2    &kp N3    &kp PLUS  &trans
+&kp LA(F4)         &trans     &kp F10    &kp F11      &kp F12   &trans                        &trans       &trans    &trans    &trans    &kp SLASH &trans
+&kp LA(N1, N3, N2) &trans     &kp F7     &kp F8       &kp F9    &trans                        &trans       &kp N7    &kp N8    &kp N9    &kp ASTRK &trans
+&trans             &trans     &kp F4     &kp F5       &kp F6    &trans                        &kp KP_EQUAL &kp N4    &kp N5    &kp N6    &kp MINUS &trans
+&ext_power EP_OFF  &trans     &kp F1     &kp F2       &kp F3    &trans    &trans    &trans    &trans       &kp N1    &kp N2    &kp N3    &kp PLUS  &trans
                                         &trans       &trans    &trans    &trans    &trans    &kp COMMA    &kp N0    &trans	
 			>;
 
