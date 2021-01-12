@@ -12,6 +12,7 @@
 #define DEFAULT 0
 #define NAV 1
 #define NUM 2
+#define GAME 3
 
 / {
 	keymap {
@@ -22,13 +23,13 @@
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   /   |
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
 // |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   '   | CTRL  |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   ;   | SHIFT |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   |   ~  |    |   \   |  N   |  M    |  ,    |  .   |   ;   | SHIFT |
 //                     | LNC  | GUI  | BACK |  DEL |    | ENTER | SPACE| ALT  | APP   |
 			bindings = <
 &kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp FSLH
 &kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp MINUS
 &kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SQT &kp RCTRL
-&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &kp LBKT   &kp RBKT &kp N  &kp M    &kp COMMA &kp DOT &kp SEMI &kp RSHFT
+&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B &kp TILDE  &kp BSLH  &kp N  &kp M    &kp COMMA &kp DOT &kp SEMI &kp RSHFT
                         &kp LG(ENTER) &kp LGUI &kp BSPC  &kp DEL  &lt NUM ENTER  &lt NAV SPACE  &kp LALT &kp K_APP
 			>;
 
@@ -44,11 +45,11 @@
 // |       |  -  |  _  |  |   |  [   |   ]  |        |  |       |  CUT |  CPY  |  PST  |      | S_DOWN|       |
 //                     |      |      |      |        |  |       |      |       |       |
 			bindings = <
-&kp TILDE &kp INS   &kp PAUSE_BREAK &trans   &trans    &trans                        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4  &bt BT_CLR
-&kp BSLH  &kp GRAVE &kp DLLR        &kp EXCL &kp LBRC  &kp RBRC                      &kp HOME     &kp PG_DN    &kp PG_UP     &kp END      &trans        &trans
-&trans    &kp DQT   &kp HASH        &kp AMPS &kp LPAR  &kp RPAR                      &kp LEFT     &kp DOWN     &kp UP        &kp RIGHT    &trans        &trans
-&trans    &kp MINUS &kp UNDER       &kp PIPE &kp LBKT  &kp RBKT   &trans   &trans    &kp LC(Z)    &kp LC(C)    &kp LC(V)     &trans       &trans        &trans
-                        &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans
+&kp TILDE &kp INS   &kp PAUSE_BREAK &trans   &trans    &trans                        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4  		 &bt BT_CLR
+&kp BSLH  &kp GRAVE &kp DLLR        &kp EXCL &kp LBRC  &kp RBRC                      &kp HOME     &kp PG_DN    &kp PG_UP     &kp END      &trans        		 &trans
+&trans    &kp DQT   &kp HASH        &kp AMPS &kp LPAR  &kp RPAR                      &kp LEFT     &kp DOWN     &kp UP        &kp RIGHT    &kp K_SCROLL_UP    &trans
+&trans    &kp MINUS &kp UNDER       &kp PIPE &kp LBKT  &kp RBKT   &to GAME  &trans   &kp LC(Z)    &kp LC(C)    &kp LC(V)     &trans       &kp K_SCROLL_DOWN  &trans
+                        &trans  &trans  &kp LSHFT    &trans   &trans    &trans      &trans    &trans
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -64,10 +65,29 @@
 //                     |      |      |      |        |  |       |  ,   |   0   |       |
 			bindings = <
 &kp LA(F4)         &trans     &kp F10    &kp F11      &kp F12   &trans                        &trans       &trans    &trans    &trans    &kp SLASH &trans
-&kp LA(N1, N3, N2) &trans     &kp F7     &kp F8       &kp F9    &trans                        &trans       &kp N7    &kp N8    &kp N9    &kp ASTRK &trans
+&trans             &trans     &kp F7     &kp F8       &kp F9    &trans                        &trans       &kp N7    &kp N8    &kp N9    &kp ASTRK &trans
 &trans             &trans     &kp F4     &kp F5       &kp F6    &trans                        &kp KP_EQUAL &kp N4    &kp N5    &kp N6    &kp MINUS &trans
 &ext_power EP_OFF  &trans     &kp F1     &kp F2       &kp F3    &trans    &trans    &trans    &trans       &kp N1    &kp N2    &kp N3    &kp PLUS  &trans
                                         &trans       &trans    &trans    &trans    &trans    &kp COMMA    &kp N0    &trans	
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+		};
+
+		// game
+		game_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
+// |       |     |     |      |      |      |        |  |       |      |       |       |      |       |       |
+//                     |      |      |      |        |  |       |      |       |       |
+			bindings = <
+&to DEFAULT    &trans     &trans    &trans      &trans    &trans                          &kp ESC    &kp N1     &kp N2    &kp N3    &kp N4   &kp N5
+&trans         &trans     &trans    &trans      &trans    &trans                          &kp TAB    &kp Q      &kp W     &kp E     &kp R    &kp T
+&trans         &trans     &trans    &trans      &trans    &trans                          &kp H      &kp A      &kp S     &kp D     &kp F    &kp G
+&trans         &trans     &trans    &trans      &kp F1    &kp F2    &kp F3    &kp M       &kp N      &kp Z      &kp X     &kp C     &kp V    &kp B
+                                   &trans       &trans    &trans    &kp P     &kp SPACE   &kp LSHFT  &kp LCTRL  &kp LALT	
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
