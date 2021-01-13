@@ -15,10 +15,22 @@
 #define GAME 3
 
 / {
+        behaviors {
+        	hm: homerow_mods {
+                    	compatible = "zmk,behavior-hold-tap";
+                        label = "HOMEROW_MODS";
+                        #binding-cells = <2>;
+                        tapping_term_ms = <150>;
+                        flavor = "tap-preferred";
+                        bindings = <&kp>, <&kp>;
+                };
+        };
+
 	keymap {
 		compatible = "zmk,keymap";
 
 		default_layer {
+// Homerow = LGUI(A); LALT(S); LSFT(D); LCTL(F); RCTL(J); RSFT(K); LALT(L); RGUI(');
 // ------------------------------------------------------------------------------------------------------------
 // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   /   |
 // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   -   |
@@ -26,10 +38,10 @@
 // | SHIFT |  Z  |  X  |  C   |  V   |  B   |   ~  |    |   \   |  N   |  M    |  ,    |  .   |   ;   | SHIFT |
 //                     | LNC  | GUI  | BACK |  DEL |    | ENTER | SPACE| ALT  | APP   |
 			bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3   &kp N4   &kp N5                     &kp N6 &kp N7   &kp N8    &kp N9  &kp N0   &kp FSLH
-&kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp MINUS
-&kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SQT &kp RCTRL
-&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B &kp TILDE  &kp BSLH  &kp N  &kp M    &kp COMMA &kp DOT &kp SEMI &kp RSHFT
+&kp ESC   &kp N1       &kp N2      &kp N3       &kp N4       &kp N5                     &kp N6 &kp N7      &kp N8      &kp N9       &kp N0         &kp FSLH
+&kp TAB   &kp Q        &kp W       &kp E        &kp R        &kp T                      &kp Y  &kp U       &kp I       &kp O        &kp P    	   &kp MINUS
+&kp LCTRL &hm LGUI  A  &hm LALT S  &hm LSHFT D  &hm LCTRL F  &kp G                      &kp H  &hm LGUI J  &hm LALT K  &hm LSHFT L  &hm LCTRL SQT  &kp RCTRL
+&kp LSHFT &kp Z        &kp X       &kp C        &kp V        &kp B &kp TILDE  &kp BSLH  &kp N  &kp M       &kp COMMA   &kp DOT      &kp SEMI       &kp RSHFT
                         &kp LG(ENTER) &kp LGUI &kp BSPC  &kp DEL  &lt NUM ENTER  &lt NAV SPACE  &kp LALT &kp K_APP
 			>;
 
@@ -41,13 +53,13 @@
 // ------------------------------------------------------------------------------------------------------------
 // |   ~   | INS | BRK |      |      |      |                   | BT1  | BT2   | BT3   |  BT4 |  BT5  | BTCLR |
 // |   \   |  `  |  $  |  !   |  {   |  }   |                   | HOME | PG_DN | PG_UP |  END |       |       |
-// |       |  "  |  #  |  &   |  (   |  )   |                   |  <-  |   ^   |  v    |  ->  |  S_UP |       |
+// |       | CTL |  #  |  &   |  (   |  )   |                   |  <-  |   ^   |  v    |  ->  |  S_UP |       |
 // |       |  -  |  _  |  |   |  [   |   ]  |        |  |       |  CUT |  CPY  |  PST  |      | S_DOWN|       |
 //                     |      |      |      |        |  |       |      |       |       |
 			bindings = <
 &kp TILDE &kp INS   &kp PAUSE_BREAK &trans   &trans    &trans                        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3 &bt BT_SEL 4  		 &bt BT_CLR
 &kp BSLH  &kp GRAVE &kp DLLR        &kp EXCL &kp LBRC  &kp RBRC                      &kp HOME     &kp PG_DN    &kp PG_UP     &kp END      &trans        		 &trans
-&trans    &kp DQT   &kp HASH        &kp AMPS &kp LPAR  &kp RPAR                      &kp LEFT     &kp DOWN     &kp UP        &kp RIGHT    &kp K_SCROLL_UP    &trans
+&trans    &kp LCTRL &kp HASH        &kp AMPS &kp LPAR  &kp RPAR                      &kp LEFT     &kp DOWN     &kp UP        &kp RIGHT    &kp K_SCROLL_UP    &trans
 &trans    &kp MINUS &kp UNDER       &kp PIPE &kp LBKT  &kp RBKT   &to GAME  &trans   &kp LC(Z)    &kp LC(C)    &kp LC(V)     &trans       &kp K_SCROLL_DOWN  &trans
                         &trans  &trans  &kp LSHFT    &trans   &trans    &trans      &trans    &trans
 			>;
