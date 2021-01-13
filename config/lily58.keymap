@@ -40,7 +40,7 @@
 			bindings = <
 &kp ESC   &kp N1       &kp N2      &kp N3       &kp N4       &kp N5                     &kp N6 &kp N7      &kp N8      &kp N9       &kp N0         &kp FSLH
 &kp TAB   &kp Q        &kp W       &kp E        &kp R        &kp T                      &kp Y  &kp U       &kp I       &kp O        &kp P    	   &kp MINUS
-&kp LCTRL &hm LGUI  A  &hm LALT S  &hm LSHFT D  &hm LCTRL F  &kp G                      &kp H  &hm LGUI J  &hm LALT K  &hm LSHFT L  &hm LCTRL SQT  &kp RCTRL
+&kp LCTRL &hm LGUI  A  &hm LALT S  &hm LSHFT D  &hm LCTRL F  &kp G                      &kp H  &hm RCTRL J &hm RSHFT K &hm RALT L   &hm RGUI SQT   &kp RCTRL
 &kp LSHFT &kp Z        &kp X       &kp C        &kp V        &kp B &kp TILDE  &kp BSLH  &kp N  &kp M       &kp COMMA   &kp DOT      &kp SEMI       &kp RSHFT
                         &kp LG(ENTER) &kp LGUI &kp BSPC  &kp DEL  &lt NUM ENTER  &lt NAV SPACE  &kp LALT &kp K_APP
 			>;
